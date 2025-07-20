@@ -1,12 +1,36 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Netlify deployment configuration
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: [
-      'images.unsplash.com',
-      'picsum.photos',
-      'via.placeholder.com',
-      'supabase.co'
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'supabase.co',
+        port: '',
+        pathname: '/**',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
   },
