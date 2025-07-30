@@ -10,20 +10,21 @@ const path = require('path');
 
 // Required environment variables
 const REQUIRED_ENV_VARS = {
-  'NEXT_PUBLIC_SUPABASE_URL': {
-    required: true,
-    pattern: /^https:\/\/.*\.supabase\.co$/,
-    description: 'Supabase project URL'
-  },
-  'NEXT_PUBLIC_SUPABASE_ANON_KEY': {
-    required: true,
-    pattern: /^eyJ[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/,
-    description: 'Supabase anonymous key'
-  }
+  // No required variables for basic deployment
 };
 
 // Optional environment variables with validation
 const OPTIONAL_ENV_VARS = {
+  'NEXT_PUBLIC_SUPABASE_URL': {
+    required: false,
+    pattern: /^https:\/\/.*\.supabase\.co$/,
+    description: 'Supabase project URL (optional)'
+  },
+  'NEXT_PUBLIC_SUPABASE_ANON_KEY': {
+    required: false,
+    pattern: /^eyJ[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/,
+    description: 'Supabase anonymous key (optional)'
+  },
   'NEXT_PUBLIC_GA_ID': {
     required: false,
     pattern: /^G-[A-Z0-9]{10}$/,
@@ -35,6 +36,8 @@ const OPTIONAL_ENV_VARS = {
     description: 'Vercel Analytics ID (optional)'
   }
 };
+
+
 
 // Colors for console output
 const colors = {
